@@ -2,7 +2,7 @@
     "[python]": {
         "editor.bracketPairColorization.enabled": false,
         "editor.guides.bracketPairs": false,
-        "editor.tabSize": 4
+        "editor.tabSize": 2
     },
     "editor.bracketPairColorization.enabled": true,
     "editor.detectIndentation": false,
@@ -11,10 +11,13 @@
     "editor.minimap.enabled": false,
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.renderControlCharacters": true,
-    "editor.rulers": [
-        80,
-        120
-    ],
+    "editor.rulers":
+        [
+            {
+                "column": 120,
+                "color": "#252525"
+            }
+        ], // 80, 120
     "editor.showFoldingControls": "always",
     "editor.snippetSuggestions": "top",
     "editor.tabSize": 2,
@@ -24,6 +27,9 @@
     "emmet.showSuggestionsAsSnippets": true,
     "emmet.triggerExpansionOnTab": true,
     "explorer.confirmDelete": false,
+    "files.associations": {
+      "*.js.erb": "erb"
+    },
     "files.exclude": {
         "__pycache__": true,
         "_site": true,
@@ -56,7 +62,6 @@
         "**/tmp/**": true,
         "**/vendor/**": true
     },
-    "git.enabled": false,
     "notebook.diff.ignoreMetadata": true,
     "notebook.lineNumbers": "on",
     "notebook.markup.fontSize": 13,
@@ -74,10 +79,10 @@
     "window.restoreWindows": "none",
     "window.newWindowDimensions": "maximized",
     "workbench.editor.enablePreview": true,
-    "workbench.iconTheme": "vscode-great-icons",
-    "workbench.settings.editor": "json",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.settings.editor": "ui",
     "workbench.settings.openDefaultSettings": true,
     "workbench.settings.useSplitJSON": true,
     "workbench.startupEditor": "newUntitledFile",
-    "workbench.panel.defaultLocation": "right",
+    "editor.wordWrap": "on",
 }

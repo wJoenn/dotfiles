@@ -59,6 +59,7 @@
 
 [init]
   defaultBranch = master
+
 [user]
-	email = wjoenn@gmail.com
+	email = louisramosdev@gmail.com
 	name = Louis Ramos
