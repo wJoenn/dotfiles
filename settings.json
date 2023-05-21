@@ -84,5 +84,8 @@
   "workbench.settings.openDefaultSettings": true,
   "workbench.settings.useSplitJSON": true,
   "workbench.startupEditor": "newUntitledFile",
-  "editor.wordWrap": "on"
+  "editor.wordWrap": "on",
+  "material-icon-theme.folders.color": "#d3d3d3",
+  "vue.inlayHints.optionsWrapper": false,
+  "workbench.colorTheme": "Default Dark+"
 }
