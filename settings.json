@@ -87,5 +87,6 @@
   "editor.wordWrap": "on",
   "material-icon-theme.folders.color": "#d3d3d3",
   "vue.inlayHints.optionsWrapper": false,
-  "workbench.colorTheme": "Default Dark+"
+  "workbench.colorTheme": "Default Dark+",
+  "vue.codeLens.enabled": false
 }
