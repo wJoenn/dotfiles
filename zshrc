@@ -4,7 +4,7 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 
 # Useful oh-my-zsh plugins for Le Wagon bootcamps
-plugins=(git gitfast last-working-dir common-aliases zsh-syntax-highlighting history-substring-search ssh-agent)
+plugins=(git gitfast last-working-dir common-aliases zsh-syntax-highlighting history-substring-search ssh-agent asdf)
 
 # (macOS-only) Prevent Homebrew from reporting - https://github.com/Homebrew/brew/blob/master/docs/Analytics.md
 export HOMEBREW_NO_ANALYTICS=1
@@ -70,4 +70,31 @@ export EDITOR=code
 
 # Set ipdb as the default Python debugger
 export PYTHONBREAKPOINT=ipdb.set_trace
-# sudo /etc/init.d/postgresql start
+sudo /etc/init.d/postgresql start
+
+# Starts local MongoDB server
+if ! pgrep -x "mongod" > /dev/null; then
+  mongod --dbpath ~/data/db >/dev/null 2>&1 &
+fi
+echo " * Starting MongoDB database server"
+
+# fly.io cli config
+export FLYCTL_INSTALL="/home/joenn/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+# bun completions
+[ -s "/home/joenn/.bun/_bun" ] && source "/home/joenn/.bun/_bun"
+
+export PATH="$HOME/.cargo/bin:$PATH"
+
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+
+# pnpm
+export PNPM_HOME="/home/joenn/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
