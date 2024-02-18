@@ -70,31 +70,47 @@ export EDITOR=code
 
 # Set ipdb as the default Python debugger
 export PYTHONBREAKPOINT=ipdb.set_trace
-sudo /etc/init.d/postgresql start
 
-# Starts local MongoDB server
+# Databases
+## MongoDB
+### Starts local MongoDB server
 if ! pgrep -x "mongod" > /dev/null; then
   mongod --dbpath ~/data/db >/dev/null 2>&1 &
 fi
-echo " * Starting MongoDB database server"
+echo " * Starting MongoDB v6.0.8 database server"
 
-# fly.io cli config
-export FLYCTL_INSTALL="/home/joenn/.fly"
-export PATH="$FLYCTL_INSTALL/bin:$PATH"
+## PostgreSQL
+### Starts local PostgreSQL server
+sudo /etc/init.d/postgresql start
 
-# bun completions
-[ -s "/home/joenn/.bun/_bun" ] && source "/home/joenn/.bun/_bun"
+# Languages
+## Crystal
+### adema binary
+export PATH="/home/joenn/.asdf/plugins/crystal/bin:$PATH"
 
-export PATH="$HOME/.cargo/bin:$PATH"
-
+## Go
+### go binary
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
-# pnpm
+## JavaScript
+### Bun (Don't know what this does)
+[ -s "/home/joenn/.bun/_bun" ] && source "/home/joenn/.bun/_bun"
+
+### Pnpm (Don't know what this does)
 export PNPM_HOME="/home/joenn/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
-# pnpm end
+
+## Rust
+### Cargo binary (Why is this here ?)
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# Tools
+## Fly.io
+### fly binary
+export FLYCTL_INSTALL="/home/joenn/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"

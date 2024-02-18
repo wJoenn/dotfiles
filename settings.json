@@ -88,5 +88,6 @@
   "material-icon-theme.folders.color": "#d3d3d3",
   "vue.inlayHints.optionsWrapper": false,
   "workbench.colorTheme": "Default Dark+",
-  "vue.codeLens.enabled": false
+  "vue.codeLens.enabled": false,
+  "crystal-lang.server": "/home/joenn/.asdf/plugins/crystal/bin/crystalline"
 }
