@@ -6,9 +6,6 @@ ZSH_THEME="robbyrussell"
 # Useful oh-my-zsh plugins for Le Wagon bootcamps
 plugins=(git gitfast last-working-dir common-aliases zsh-syntax-highlighting history-substring-search ssh-agent asdf)
 
-# (macOS-only) Prevent Homebrew from reporting - https://github.com/Homebrew/brew/blob/master/docs/Analytics.md
-export HOMEBREW_NO_ANALYTICS=1
-
 # Disable warning about insecure completion-dependent directories
 ZSH_DISABLE_COMPFIX=true
 
@@ -20,10 +17,6 @@ unalias lt # we need `lt` for https://github.com/localtunnel/localtunnel
 # Load rbenv if installed (to manage your Ruby versions)
 export PATH="${HOME}/.rbenv/bin:${PATH}" # Needed for Linux/WSL
 type -a rbenv > /dev/null && eval "$(rbenv init -)"
-
-# Load pyenv (to manage your Python versions)
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-type -a pyenv > /dev/null && eval "$(pyenv init -)" && eval "$(pyenv virtualenv-init -)" && RPROMPT+='[🐍 $(pyenv version-name)]'
 
 # Load nvm (to manage your node versions)
 export NVM_DIR="$HOME/.nvm"
@@ -53,11 +46,6 @@ load-nvmrc() {
 type -a nvm > /dev/null && add-zsh-hook chpwd load-nvmrc
 type -a nvm > /dev/null && load-nvmrc
 
-# Rails and Ruby uses the local `bin` folder to store binstubs.
-# So instead of running `bin/rails` like the doc says, just run `rails`
-# Same for `./node_modules/.bin` and nodejs
-export PATH="./bin:./node_modules/.bin:${PATH}:/usr/local/sbin"
-
 # Store your own aliases in the ~/.aliases file and load the here.
 [[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"
 
@@ -67,9 +55,6 @@ export LC_ALL=en_US.UTF-8
 
 export BUNDLER_EDITOR=code
 export EDITOR=code
-
-# Set ipdb as the default Python debugger
-export PYTHONBREAKPOINT=ipdb.set_trace
 
 # Databases
 ## MongoDB
@@ -104,6 +89,12 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
+
+## Ruby
+### Rails and Ruby uses the local `bin` folder to store binstubs.
+### So instead of running `bin/rails` like the doc says, just run `rails`
+### Same for `./node_modules/.bin` and nodejs
+export PATH="./bin:./node_modules/.bin:${PATH}:/usr/local/sbin"
 
 ## Rust
 ### Cargo binary (Why is this here ?)

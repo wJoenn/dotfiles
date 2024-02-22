@@ -1,9 +1,4 @@
 {
-  "[python]": {
-      "editor.bracketPairColorization.enabled": false,
-      "editor.guides.bracketPairs": false,
-      "editor.tabSize": 2
-  },
   "editor.bracketPairColorization.enabled": true,
   "editor.detectIndentation": false,
   "editor.fontSize": 14,
@@ -27,27 +22,13 @@
   "emmet.showSuggestionsAsSnippets": true,
   "emmet.triggerExpansionOnTab": true,
   "explorer.confirmDelete": false,
-  "files.associations": {
-    "*.js.erb": "erb"
-  },
   "files.exclude": {
-      "__pycache__": true,
       "_site": true,
-      ".asset-cache": true,
-      ".bundle": true,
-      ".ipynb_checkpoints": true,
-      ".pytest_cache": true,
-      ".sass-cache": true,
-      ".svn": true,
       "**/.DS_Store": true,
       "**/.egg-info": true,
       "**/.git": true,
-      "build": true,
-      "coverage": true,
-      "dist": true,
       "log": true,
       "node_modules": true,
-      "public/packs": true,
       "tmp": true
   },
   "files.hotExit": "off",
@@ -65,16 +46,6 @@
   "notebook.diff.ignoreMetadata": true,
   "notebook.lineNumbers": "on",
   "notebook.markup.fontSize": 13,
-  "python.defaultInterpreterPath": "~/.pyenv/shims/python",
-  "python.formatting.provider": "yapf",
-  "python.languageServer": "Pylance",
-  "python.linting.enabled": false,
-  "python.linting.flake8Enabled": false,
-  "python.linting.pylintEnabled": false,
-  "python.terminal.activateEnvironment": false,
-  "ruby.lint": {
-      "rubocop": true
-  },
   "telemetry.telemetryLevel": "off",
   "window.restoreWindows": "none",
   "window.newWindowDimensions": "maximized",
@@ -89,5 +60,6 @@
   "vue.inlayHints.optionsWrapper": false,
   "workbench.colorTheme": "Default Dark+",
   "vue.codeLens.enabled": false,
-  "crystal-lang.server": "/home/joenn/.asdf/plugins/crystal/bin/crystalline"
+  "crystal-lang.server": "/home/joenn/.asdf/plugins/crystal/bin/crystalline",
+  "crystal-lang.spec-explorer": true
 }
