@@ -1,4 +1,4 @@
 # Crystal
 alias cr="crystal"
-alias crs="crystal spec . -v"
+alias crs="crystal spec spec/ -v"
 alias crtf="crystal tool format"
