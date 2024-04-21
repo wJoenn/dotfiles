@@ -59,10 +59,10 @@ export EDITOR=code
 # Databases
 ## MongoDB
 ### Starts local MongoDB server
-if ! pgrep -x "mongod" > /dev/null; then
-  mongod --dbpath ~/data/db >/dev/null 2>&1 &
-fi
-echo " * Starting MongoDB v6.0.8 database server"
+# if ! pgrep -x "mongod" > /dev/null; then
+#   mongod --dbpath ~/data/db >/dev/null 2>&1 &
+# fi
+# echo " * Starting MongoDB v6.0.8 database server"
 
 ## PostgreSQL
 ### Starts local PostgreSQL server
