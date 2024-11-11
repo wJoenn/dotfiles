@@ -2,3 +2,4 @@
 alias cr="crystal"
 alias crs="crystal spec spec/ -v"
 alias crtf="crystal tool format"
+alias aws-configure-dev="aws configure sso --profile leexi-admin-dev"

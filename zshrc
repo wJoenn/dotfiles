@@ -105,3 +105,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 ### fly binary
 export FLYCTL_INSTALL="/home/joenn/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+# Leexi
+## Aws
+export AWS_PROFILE=leexi-admin-dev
