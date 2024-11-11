@@ -61,5 +61,14 @@
   "workbench.colorTheme": "Default Dark+",
   "vue.codeLens.enabled": false,
   "crystal-lang.server": "/home/joenn/.asdf/plugins/crystal/bin/crystalline",
-  "crystal-lang.spec-explorer": true
+  "crystal-lang.spec-explorer": true,
+  "eslint.experimental.useFlatConfig": true,
+  "material-icon-theme.files.associations": {
+    "i18n.config.ts": "i18n"
+  },
+  "material-icon-theme.folders.associations": {
+    ".nuxt": "nuxt",
+    "composables": "vue",
+    "stores": "cart"
+  }
 }
