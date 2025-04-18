@@ -1,5 +1,6 @@
 # Crystal
-alias cr="crystal"
-alias crs="crystal spec spec/ -v"
-alias crtf="crystal tool format"
-alias aws-configure-dev="aws configure sso --profile leexi-admin-dev"
+# alias cr="crystal"
+# alias crs="crystal spec spec/ -v"
+# alias crtf="crystal tool format"
+
+alias gcfb="git commit --allow-empty -m \"force build\" && git push"

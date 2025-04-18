@@ -56,14 +56,6 @@ export LC_ALL=en_US.UTF-8
 export BUNDLER_EDITOR=code
 export EDITOR=code
 
-# Databases
-## MongoDB
-### Starts local MongoDB server
-# if ! pgrep -x "mongod" > /dev/null; then
-#   mongod --dbpath ~/data/db >/dev/null 2>&1 &
-# fi
-# echo " * Starting MongoDB v6.0.8 database server"
-
 ## PostgreSQL
 ### Starts local PostgreSQL server
 sudo /etc/init.d/postgresql start
@@ -71,24 +63,13 @@ sudo /etc/init.d/postgresql start
 # Languages
 ## Crystal
 ### adema binary
-export PATH="/home/joenn/.asdf/plugins/crystal/bin:$PATH"
+# export PATH="/home/joenn/.asdf/plugins/crystal/bin:$PATH"
 
 ## Go
 ### go binary
-export GOROOT=/usr/local/go
-export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
-
-## JavaScript
-### Bun (Don't know what this does)
-[ -s "/home/joenn/.bun/_bun" ] && source "/home/joenn/.bun/_bun"
-
-### Pnpm (Don't know what this does)
-export PNPM_HOME="/home/joenn/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
+# export GOROOT=/usr/local/go
+# export GOPATH=$HOME/go
+# export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
 ## Ruby
 ### Rails and Ruby uses the local `bin` folder to store binstubs.
@@ -96,16 +77,12 @@ esac
 ### Same for `./node_modules/.bin` and nodejs
 export PATH="./bin:./node_modules/.bin:${PATH}:/usr/local/sbin"
 
-## Rust
-### Cargo binary (Why is this here ?)
-export PATH="$HOME/.cargo/bin:$PATH"
-
-# Tools
-## Fly.io
-### fly binary
-export FLYCTL_INSTALL="/home/joenn/.fly"
-export PATH="$FLYCTL_INSTALL/bin:$PATH"
-
 # Leexi
 ## Aws
 export AWS_PROFILE=leexi-admin-dev
+if ! aws s3 ls &> /dev/null; then
+  aws configure sso --profile leexi-admin-dev --no-browser
+fi
+
+## Puppeteer
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
