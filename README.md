@@ -1,4 +1,4 @@
-# Dotfiles Repository Overview
+# Dotfiles for WSL <img src="https://github.com/user-attachments/assets/a578df6f-3618-4976-b7e3-601959613176" height="24">
 
 This repository contains my dotfiles and configuration scripts for various machines and operating systems.
 
@@ -23,15 +23,11 @@ A common set of tools is used on this branch and all its children.
 - <img src="https://github.com/user-attachments/assets/486e6c72-a528-4d40-b9d2-ea94aa3c5aa6" height="14"> **[Ruby](https://github.com/ruby/ruby)**: A server-oriented programming language.
 - **[Rbenv](https://github.com/rbenv/rbenv)**: A version manager for Ruby.
 
+### Softwares
+
+- <img src="https://github.com/user-attachments/assets/7062eb19-1997-4c92-9679-4ea71b5e3181" height="14"> **[VSCode](https://github.com/microsoft/vscode)**: A feature-rich source code editor.
+
 
 ## Installation
 
-Installation instructions are located within the README file of the corresponding branch for a specific machine.
-Navigate to the branch that matches your environment:
-
-- [master](https://github.com/wJoenn/dotfiles/tree/master/README.md)
-    - [linux](https://github.com/wJoenn/dotfiles/tree/linux/README.md)
-        - [linux/endeavour](https://github.com/wJoenn/dotfiles/tree/linux/endeavour/README.md)
-        - [linux/raspberry-pi](https://github.com/wJoenn/dotfiles/tree/linux/raspberry-pi/README.md)
-        - [linux/wsl](https://github.com/wJoenn/dotfiles/tree/linux/wsl/README.md)
-    - [windows](https://github.com/wJoenn/dotfiles/tree/windows/README.md)
+Todo...

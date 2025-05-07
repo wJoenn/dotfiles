@@ -29,6 +29,14 @@ for name in aliases gitconfig rspec vimrc zshrc; do
   fi
 done
 
+# Symlink VS Code settings to the present `settings.json` files
+for name in settings.json; do
+  CODE_PATH="~/.vscode-server/data/Machine"
+  target="$CODE_PATH/$name"
+  backup $target
+  symlink $PWD/$name $target
+done
+
 # Install zsh-syntax-highlighting plugin
 ZSH_PLUGINS_DIR="$HOME/.oh-my-zsh/custom/plugins"
 mkdir -p "$ZSH_PLUGINS_DIR" && cd "$ZSH_PLUGINS_DIR"

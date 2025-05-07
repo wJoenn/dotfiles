@@ -19,7 +19,7 @@ source "$ZSH/oh-my-zsh.sh"
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-export EDITOR=vim
+export EDITOR=code
 
 # Databases
 ## Postgres
@@ -64,3 +64,13 @@ type -a rbenv > /dev/null && eval "$(rbenv init -)"
 ### So instead of running `bin/rails` like the doc says, just run `rails`
 ### Same for `./node_modules/.bin` and nodejs
 export PATH="./bin:./node_modules/.bin:${PATH}:/usr/local/sbin"
+
+# Leexi
+## Aws
+export AWS_PROFILE=leexi-admin-dev
+if [[ "$PWD"/ == "$HOME/code/joenn/leexi"/* ]] && ! aws s3 ls &> /dev/null; then
+  aws configure sso --profile leexi-admin-dev --no-browser
+fi
+
+## Puppeteer
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
