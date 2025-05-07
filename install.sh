@@ -1,4 +1,43 @@
 #!/bin/zsh
 
+# Define a function which rename a `target` file to `target.backup` if the file exists and if it's a 'real' file, ie not a symlink
+backup() {
+  target=$1
+  if [ -e "$target" ]; then
+    if [ ! -L "$target" ]; then
+      mv "$target" "$target.backup"
+      echo "-----> Moved $target config file to $target.backup"
+    fi
+  fi
+}
+
+symlink() {
+  file=$1
+  link=$2
+  if [ ! -e "$link" ]; then
+    echo "-----> Symlinking $link"
+    ln -s $file $link
+  fi
+}
+
+# For all files `$name` in the present folder, backup the target file located at `~/.$name` and symlink `$name` to `~/.$name`
+for name in aliases gitconfig rspec vimrc zshrc; do
+  if [ ! -d "$name" ]; then
+    target="$HOME/.$name"
+    backup $target
+    symlink $PWD/$name $target
+  fi
+done
+
+# Install zsh-syntax-highlighting plugin
+ZSH_PLUGINS_DIR="$HOME/.oh-my-zsh/custom/plugins"
+mkdir -p "$ZSH_PLUGINS_DIR" && cd "$ZSH_PLUGINS_DIR"
+if [ ! -d "$ZSH_PLUGINS_DIR/zsh-syntax-highlighting" ]; then
+  echo "-----> Installing zsh plugin 'zsh-syntax-highlighting'..."
+  git clone https://github.com/zsh-users/zsh-autosuggestions
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting
+fi
+cd "$PWD"
+
 # Refresh the current terminal with the newly installed configuration
 exec zsh

@@ -23,6 +23,8 @@ export EDITOR=vim
 
 # Databases
 ## Postgres
+### Starts local PostgreSQL server
+sudo /etc/init.d/postgresql start
 
 # Languages
 ## Node
@@ -52,3 +54,13 @@ load-nvmrc() {
 }
 
 type -a nvm > /dev/null && load-nvmrc
+
+## Ruby
+### Load rbenv if installed (to manage your Ruby versions)
+export PATH=$HOME/.rbenv/bin:$PATH # Needed for Linux/WSL
+type -a rbenv > /dev/null && eval "$(rbenv init -)"
+
+### Rails and Ruby uses the local `bin` folder to store binstubs.
+### So instead of running `bin/rails` like the doc says, just run `rails`
+### Same for `./node_modules/.bin` and nodejs
+export PATH="./bin:./node_modules/.bin:${PATH}:/usr/local/sbin"
