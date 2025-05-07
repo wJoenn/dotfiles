@@ -35,6 +35,7 @@ backup $target
 symlink $PWD/settings.json $target
 
 # Install zsh-syntax-highlighting plugin
+CURRENT_DIR="$PWD"
 ZSH_PLUGINS_DIR="$HOME/.oh-my-zsh/custom/plugins"
 mkdir -p "$ZSH_PLUGINS_DIR" && cd "$ZSH_PLUGINS_DIR"
 if [ ! -d "$ZSH_PLUGINS_DIR/zsh-syntax-highlighting" ]; then
@@ -42,7 +43,7 @@ if [ ! -d "$ZSH_PLUGINS_DIR/zsh-syntax-highlighting" ]; then
   git clone https://github.com/zsh-users/zsh-autosuggestions
   git clone https://github.com/zsh-users/zsh-syntax-highlighting
 fi
-cd "$PWD"
+cd "$CURRENT_DIR"
 
 # Refresh the current terminal with the newly installed configuration
 exec zsh
