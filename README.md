@@ -31,7 +31,7 @@ Navigate to the branch that matches your environment:
 
 - [master](https://github.com/wJoenn/dotfiles/tree/master/README.md)
     - [linux](https://github.com/wJoenn/dotfiles/tree/linux/README.md)
-        - [linux/endeavour](https://github.com/wJoenn/dotfiles/tree/linux/endeavour/README.md)
-        - [linux/raspberry-pi](https://github.com/wJoenn/dotfiles/tree/linux/raspberry-pi/README.md)
-        - [linux/wsl](https://github.com/wJoenn/dotfiles/tree/linux/wsl/README.md)
+        - [linux-endeavour](https://github.com/wJoenn/dotfiles/tree/linux-endeavour/README.md)
+        - [linux-raspberry-pi](https://github.com/wJoenn/dotfiles/tree/linux-raspberry-pi/README.md)
+        - [linux-wsl](https://github.com/wJoenn/dotfiles/tree/linux-wsl/README.md)
     - [windows](https://github.com/wJoenn/dotfiles/tree/windows/README.md)
