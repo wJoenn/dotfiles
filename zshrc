@@ -4,7 +4,7 @@ ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME=robbyrussell
 
 # Useful oh-my-zsh plugins for Le Wagon bootcamps
-plugins=(git gitfast zsh-syntax-highlighting history-substring-search ssh-agent)
+plugins=(git gitfast history-substring-search last-working-dir ssh-agent zsh-syntax-highlighting )
 
 # Disable warning about insecure completion-dependent directories
 ZSH_DISABLE_COMPFIX=true
