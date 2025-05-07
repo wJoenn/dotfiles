@@ -18,9 +18,14 @@ Navigate to the branch that matches your environment:
 
 A common set of tools is used on this branch and all its children.
 
+### Terminal
+
 - <img src="https://github.com/user-attachments/assets/7c86fdc5-9a02-4c85-aadb-c343b51df1d6" height="14"> **[Git](https://github.com/git/git)**: The ubiquitous version control system.
-- <img src="https://github.com/user-attachments/assets/56f3887c-b170-486e-959b-21249778d387" height="14"> **[Node.js](https://github.com/nodejs/node)**: A JavaScript runtime environment.
-- <img src="https://res.cloudinary.com/practicaldev/image/fetch/s---nOlwwI0--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://raw.githubusercontent.com/nvm-sh/logos/HEAD/nvm-logo-color.svg" height="8"> **[nvm (Node Version Manager)](https://github.com/nvm-sh/nvm)**: A version manager for Node.js.
 - <img src="https://ohmyz.sh/img/ohmyzsh-logo-ansi.png" height="10"> **[Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)**: A framework for managing and customizing Zsh.
 - <img src="https://github.com/user-attachments/assets/ed991fd4-d15d-4403-a14a-e0469ec44038" height="14"> **[Vim](https://github.com/vim/vim)**: A configurable text editor for the terminal.
 - <img src="https://github.com/user-attachments/assets/74b8cc33-f5b7-4ebb-a9ef-90077da00495" height="12"> **[Zsh (Z Shell)](https://github.com/zsh-users/zsh)**: A replacement shell for Bash.
+
+### Languages
+
+- <img src="https://github.com/user-attachments/assets/56f3887c-b170-486e-959b-21249778d387" height="14"> **[Node.js](https://github.com/nodejs/node)**: A JavaScript runtime environment.
+- **[nvm (Node Version Manager)](https://github.com/nvm-sh/nvm)**: A version manager for Node.js.
