@@ -2,18 +2,6 @@
 
 This repository contains my dotfiles and configuration scripts for various machines and operating systems.
 
-## Installation
-
-Installation instructions are located within the README file of the corresponding branch for a specific machine.
-Navigate to the branch that matches your environment:
-
-- [master](https://github.com/wJoenn/dotfiles/tree/master/README.md)
-    - [linux](https://github.com/wJoenn/dotfiles/tree/linux/README.md)
-        - [linux/endeavour](https://github.com/wJoenn/dotfiles/tree/linux/endeavour/README.md)
-        - [linux/raspberry-pi](https://github.com/wJoenn/dotfiles/tree/linux/raspberry-pi/README.md)
-        - [linux/wsl](https://github.com/wJoenn/dotfiles/tree/linux/wsl/README.md)
-    - [windows](https://github.com/wJoenn/dotfiles/tree/windows/README.md)
-
 ## Toolset
 
 A common set of tools is used on this branch and all its children.
@@ -29,3 +17,16 @@ A common set of tools is used on this branch and all its children.
 
 - <img src="https://github.com/user-attachments/assets/56f3887c-b170-486e-959b-21249778d387" height="14"> **[Node.js](https://github.com/nodejs/node)**: A JavaScript runtime environment.
 - **[nvm (Node Version Manager)](https://github.com/nvm-sh/nvm)**: A version manager for Node.js.
+
+
+## Installation
+
+Installation instructions are located within the README file of the corresponding branch for a specific machine.
+Navigate to the branch that matches your environment:
+
+- [master](https://github.com/wJoenn/dotfiles/tree/master/README.md)
+    - [linux](https://github.com/wJoenn/dotfiles/tree/linux/README.md)
+        - [linux/endeavour](https://github.com/wJoenn/dotfiles/tree/linux/endeavour/README.md)
+        - [linux/raspberry-pi](https://github.com/wJoenn/dotfiles/tree/linux/raspberry-pi/README.md)
+        - [linux/wsl](https://github.com/wJoenn/dotfiles/tree/linux/wsl/README.md)
+    - [windows](https://github.com/wJoenn/dotfiles/tree/windows/README.md)
