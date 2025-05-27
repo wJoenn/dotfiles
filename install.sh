@@ -29,6 +29,11 @@ for name in aliases gitconfig rspec vimrc zshrc; do
   fi
 done
 
+# Symlink VS Code settings to the present settings.json files
+target="$HOME/.config/Code/User/settings.json"
+backup $target
+symlink $PWD/settings.json $target
+
 # Install zsh-syntax-highlighting plugin
 CURRENT_DIR="$PWD"
 ZSH_PLUGINS_DIR="$HOME/.oh-my-zsh/custom/plugins"
