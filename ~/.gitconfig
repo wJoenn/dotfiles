@@ -1,0 +1,33 @@
+[branch "master"]
+    mergeoptions = --no-edit
+
+[color]
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
+    ui = auto
+
+[color "branch"]
+    current = green
+    remote = yellow
+
+[core]
+    editor = code --wait
+    pages = less -FRSX
+
+[help]
+    autocorrect = 1
+
+[init]
+    defaultBranch = master
+
+[pull]
+    rebase = false
+
+[push]
+    default = simple
+
+[user]
+    email = louisramosdev@gmail.com
+    name = Louis Ramos

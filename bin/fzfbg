@@ -1,0 +1,30 @@
+#!/bin/bash
+
+ASSETS="$DOTFILES/assets"
+
+echo $DOTFILES
+
+# Get the list of filenames without extensions
+filenames=()
+for file_path in "$ASSETS"/*; do
+  filename="$(basename "$file_path")"
+  filenames+=("${filename%.*}")
+done
+
+# Use 'fzf' to create a searchable and navigable menu
+# The selected file is stored in the 'selected_file' variable
+selected_filename=$(printf "%s\n" "${filenames[@]}" | fzf)
+
+# Check if a file was selected (fzf returns a non-zero exit code if you press Ctrl+C or Esc)
+if [ -n "$selected_filename" ]; then
+  # Reconstruct the full path
+  file="$ASSETS/$selected_filename.png"
+  target="$HOME/.config/hypr/wallpaper.png"
+
+  cp "$file" "$target"
+  hyprctl hyprpaper reload ",$target" > /dev/null
+
+  echo "Wallpaper changed to $selected_filename."
+else
+  echo "No selection made."
+fi

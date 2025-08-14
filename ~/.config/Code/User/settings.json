@@ -1,0 +1,78 @@
+{
+  "editor.bracketPairColorization.enabled": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  "editor.detectIndentation": false,
+  "editor.fontSize": 14,
+  "editor.guides.bracketPairs": true,
+  "editor.minimap.enabled": false,
+  "editor.mouseWheelZoom": true,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.renderControlCharacters": true,
+  "editor.rulers": [
+    {
+      "column": 120,
+      "color": "#303030"
+    }
+  ],
+  "editor.showFoldingControls": "always",
+  "editor.snippetSuggestions": "top",
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+
+  "emmet.showSuggestionsAsSnippets": true,
+  "emmet.triggerExpansionOnTab": true,
+
+  "explorer.confirmDelete": false,
+
+  "files.exclude": {
+    "**/.git": true,
+    "**/.output": true,
+    "**/dist": true,
+    "**/log": true,
+    "**/node_modules": true,
+    "**/tmp": true
+  },
+  "files.hotExit": "off",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "files.watcherExclude": {
+    "**/.output/**": true,
+    "**/audits/**": true,
+    "**/coverage/**": true,
+    "**/dist/**": true,
+    "**/log/**": true,
+    "**/node_modules/**": true,
+    "**/tmp/**": true,
+    "**/vendor/**": true
+  },
+
+  "material-icon-theme.activeIconPack": "vue",
+  "material-icon-theme.files.associations": {
+    "i18n.config.ts": "i18n",
+  },
+  "material-icon-theme.folders.color": "#d3d3d3",
+  "material-icon-theme.folders.associations": {
+    ".nuxt": "nuxt",
+    "composables": "vue",
+    "stores": "cart"
+  },
+
+  "telemetry.telemetryLevel": "off",
+
+  "vue.codeLens.enabled": false,
+  "vue.inlayHints.optionsWrapper": false,
+
+  "window.restoreWindows": "one",
+  "window.newWindowDimensions": "maximized",
+
+  "workbench.colorTheme": "Default Dark+",
+  "workbench.editor.enablePreview": false,
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.settings.editor": "ui",
+  "workbench.settings.openDefaultSettings": true,
+  "workbench.settings.useSplitJSON": true,
+  "workbench.startupEditor": "welcomePage"
+}

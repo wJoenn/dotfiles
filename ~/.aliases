@@ -1,0 +1,2 @@
+alias fzfcode='fzf --preview="bat --color=always {}" --bind="enter:become(code {+})"'
+alias fzfc=fzfcode
