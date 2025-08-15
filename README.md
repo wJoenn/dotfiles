@@ -7,6 +7,7 @@
 - dunst: A lightweight and customizable notification daemon.
 - fzf:
 - git: A distributed version control system for tracking changes in source code.
+- github-cli:
 - htop: An interactive and real-time process viewer and system monitor.
 - hyprland: A dynamic tiling Wayland compositor based on wlroots, designed for performance and aesthetics.
 - kitty: A fast, feature-rich, cross-platform GPU-accelerated terminal emulator.
