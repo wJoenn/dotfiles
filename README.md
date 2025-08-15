@@ -4,7 +4,9 @@
 - bat: A `cat` clone with syntax highlighting and Git integration.
 - brave-bin: The pre-compiled binary package for the Brave web browser.
 - brightnessctl: A command-line tool for controlling display brightness on Linux.
+- chafa:
 - dunst: A lightweight and customizable notification daemon.
+- fastfetch:
 - fzf: A general-purpose command-line fuzzy finder.
 - git: A distributed version control system for tracking changes in source code.
 - github-cli: A command-line interface for GitHub.
