@@ -26,6 +26,7 @@
 ### Infotainment
 - grim: A command-line utility for taking screenshots on Wayland compositors.
 - slurp: A command-line tool for selecting a region of the screen on Wayland.
+- spotify-launcher: A simple launcher script for the Spotify desktop client on Linux.
 - wl-clipboard: A command-line utility that provides copy and paste functionality for the Wayland protocol.
 ### Development
 ### Gaming
