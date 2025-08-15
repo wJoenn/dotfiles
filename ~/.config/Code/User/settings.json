@@ -49,6 +49,8 @@
     "**/vendor/**": true
   },
 
+  "git.confirmSync": false,
+
   "material-icon-theme.activeIconPack": "vue",
   "material-icon-theme.files.associations": {
     "i18n.config.ts": "i18n",
