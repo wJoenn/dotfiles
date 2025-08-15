@@ -1,0 +1,49 @@
+.thunar {
+  background-color: transparent;
+}
+
+.thunar * {
+  color: #cbcbcb;
+}
+
+.thunar paned box scrolledwindow {
+  border: none;
+  background-color: transparent;
+}
+
+.thunar paned box scrolledwindow treeview {
+  background-color: rgba(37, 37, 37, 0.8);
+}
+
+.thunar paned notebook scrolledwindow {
+  border-bottom-color: #414141;
+  border-top: none;
+}
+
+.thunar paned widget {
+  background-color: rgba(26, 26, 26, 0.8);
+}
+
+.thunar menubar {
+  background-color: rgba(51, 51, 51, 0.8);
+}
+
+.thunar menubar menuitem menu {
+  background-color: #252525;
+  border: 1px solid #414141;
+  border-radius: 5px;
+  padding: 5px 0;
+}
+
+.thunar toolbar {
+  background-color: rgba(51, 51, 51, 0.8);
+}
+
+.thunar toolbar entry {
+  background-color: transparent;
+  border: 1px solid #515151
+}
+
+.thunar toolbar image {
+  -gtk-icon-transform: scale(0.7);
+}
