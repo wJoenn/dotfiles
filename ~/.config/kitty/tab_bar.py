@@ -1,15 +1,13 @@
 import os
-from kitty.fast_data_types import Screen, get_options
+from kitty.fast_data_types import Screen # type: ignore
 from kitty.tab_bar import DrawData, ExtraData, TabBarData, as_rgb, draw_title
 
-opts = get_options()
-
-BAT_PATH = '/sys/class/power_supply'
-BATTERY_ICONS = { 'charging': '⚡︎', 'full': '', '75': '', '50': '', '25': '', 'empty': '' }
-CIRCLE_ICONS = { 'active': ' ⊙ ', 'inactive': ' • ' }
+BAT_PATH: str = '/sys/class/power_supply'
+BATTERY_ICONS: dict[str, str] = { 'charging': '⚡︎', 'full': '', '75': '', '50': '', '25': '', 'empty': '' }
+CIRCLE_ICONS: dict[str, str] = { 'active': ' ⊙ ', 'inactive': ' • ' }
 ICON_FG: int = as_rgb(0x80eec0)
 
-def get_battery_info():
+def get_battery_info() -> tuple[None, None] | tuple[str, int]:
   if not os.path.exists(BAT_PATH):
     return None, None
 
@@ -26,7 +24,7 @@ def get_battery_info():
 
   return None, None
 
-def get_battery_icon():
+def get_battery_icon() -> str:
   status, percent = get_battery_info()
   if status is None or percent is None:
     return ''
@@ -55,7 +53,13 @@ def _draw_battery_icon(screen: Screen, index: int) -> int:
 
   return screen.cursor.x
 
-def _draw_title(draw_data: DrawData, screen: Screen, tab: TabBarData, index: int, is_last: bool) -> int:
+def _draw_title(
+  draw_data: DrawData,
+  screen: Screen,
+  tab: TabBarData,
+  index: int,
+  is_last: bool
+) -> int:
   if index != 1 or not is_last:
     is_active = getattr(tab, "is_active", False)
     icon = CIRCLE_ICONS['active'] if is_active else CIRCLE_ICONS['inactive']
@@ -69,12 +73,12 @@ def draw_tab(
   draw_data: DrawData,
   screen: Screen,
   tab: TabBarData,
-  before: int,
-  max_title_length: int,
+  _before: int,
+  _max_title_length: int,
   index: int,
   is_last: bool,
-  extra_data: ExtraData
-):
+  _extra_data: ExtraData
+) -> int:
   _draw_battery_icon(screen, index)
   end = _draw_title(draw_data, screen, tab, index, is_last)
 
