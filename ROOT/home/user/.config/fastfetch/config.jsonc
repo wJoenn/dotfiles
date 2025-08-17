@@ -16,76 +16,76 @@
     "separator",
     {
       "keyColor": "#76e5be",
-      "key": "Operating System",
+      "key": " 󰣇 Operating System",
       "type": "os"
     },
     {
       "keyColor": "#6de1bc",
       "format": "{pretty-name}",
-      "key": "Window Manager",
+      "key": " 󱗃 Window Manager",
       "type": "wm"
     },
     {
       "keyColor": "#63d8bb",
       "format": "{pretty-name}",
-      "key": "Terminal",
+      "key": "  Terminal",
       "type": "terminal"
     },
     {
       "keyColor": "#5acdb9",
       "format": "{pretty-name}",
-      "key": "Shell",
+      "key": "  Shell",
       "type": "shell"
     },
     {
       "keyColor": "#50c4b7",
-      "key": "Packages",
+      "key": " 󰏗 Packages",
       "type": "packages"
     },
     {
       "keyColor": "#46bca5",
-      "key": "Uptime",
+      "key": " 󱫐 Uptime",
       "type": "uptime"
     },
     {
       "keyColor": "#3ca4b4",
-      "key": "Machine",
+      "key": " 󰇺 Machine",
       "type": "host"
     },
     {
       "format": "{width}x{height} @ {refresh-rate}hz",
       "keyColor": "#329cb2",
-      "key": "Monitor",
+      "key": " 󰍹 Monitor",
       "type": "display"
     },
     {
       "format": "{vendor} {name} @ {frequency} [{type}]",
       "keyColor": "#2892b0",
-      "key": "GPU",
+      "key": " 󰊴 GPU",
       "type": "gpu"
     },
     {
       "format": "{name} @ {freq-max}",
       "keyColor": "#1e88ae",
-      "key": "CPU",
+      "key": "  CPU",
       "type": "cpu"
     },
     {
       "format": "Average {avg} - Max {max}",
       "keyColor": "#147fab",
-      "key": "CPU",
+      "key": "  CPU",
       "type": "cpuusage"
     },
     {
       "format": "{used} / {total} - {percentage}",
       "keyColor": "#0a75a9",
-      "key": "RAM",
+      "key": "  RAM",
       "type": "memory"
     },
     {
       "format": "{size-used} / {size-total} - {size-percentage}",
       "keyColor": "#007acc",
-      "key": "Drive",
+      "key": " 🖴 Drive",
       "type": "disk"
     },
     "break",
