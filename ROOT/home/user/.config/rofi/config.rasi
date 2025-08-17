@@ -27,7 +27,7 @@ configuration {
 
 /*****----- Main Window -----*****/
 window {
-  background-image: url("~/.config/rofi/background.png", both);
+  background-image: url("~/.config/blurry_wallpaper.png", width);
   border: none;
   fullscreen: true;
 }
