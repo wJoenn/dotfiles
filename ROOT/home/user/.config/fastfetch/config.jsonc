@@ -8,7 +8,7 @@
   },
   "logo": {
     "padding": {
-      "top": 1
+      "top": 2
     }
   },
   "modules": [
@@ -47,7 +47,6 @@
       "key": "Uptime",
       "type": "uptime"
     },
-    "break",
     {
       "keyColor": "#3ca4b4",
       "key": "Machine",
@@ -89,7 +88,6 @@
       "key": "Drive",
       "type": "disk"
     },
-    "break",
     "break",
     "colors"
   ]
