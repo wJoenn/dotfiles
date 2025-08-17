@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CURRENT_DIR=$PWD
-DIR="$DOTFILES/~"
+DIR="/home/$(whoami)/code/dotfiles/ROOT"
 
 backup() {
   file=$1
@@ -20,11 +20,11 @@ symlink() {
 
   if [ ! -e $target ]; then
     if [ ! -d $targetdir ]; then
-      mkdir -p $targetdir
+      sudo mkdir -p $targetdir
     fi
 
     echo "-----> Symlinking $target"
-    ln -s $file $target
+    sudo ln -s $file $target
   fi
 }
 
@@ -39,7 +39,8 @@ fi
 cd $CURRENT_DIR
 
 find $DIR -type f -print0 | while IFS= read -r -d '' file; do
-  target="$HOME${file##$DIR}"
+  raw_target="${file##$DIR}"
+  target="${raw_target/user/$(whoami)}"
 
   backup $file $target
   symlink $file $target
