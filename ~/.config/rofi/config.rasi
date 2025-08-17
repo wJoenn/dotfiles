@@ -10,6 +10,7 @@
 /*****----- Configuration -----*****/
 configuration {
   disable-history: true;
+  display-drun: "🔍";
   drun-categories: [Favourite];
 	modi: [drun];
   show-icons: true;
