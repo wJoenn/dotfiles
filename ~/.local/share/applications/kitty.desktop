@@ -1,0 +1,16 @@
+[Desktop Entry]
+Categories=Favourite;System;TerminalEmulator;
+Comment=Fast, feature-rich, GPU based terminal
+Exec=kitty
+GenericName=Terminal emulator
+Icon=kitty
+Name=Kitty
+StartupNotify=true
+TryExec=kitty
+Type=Application
+Version=1.0
+X-TerminalArgAppId=--class
+X-TerminalArgDir=--working-directory
+X-TerminalArgExec=--
+X-TerminalArgHold=--hold
+X-TerminalArgTitle=--title

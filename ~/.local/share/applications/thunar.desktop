@@ -1,0 +1,12 @@
+[Desktop Entry]
+Categories=Favourite;System;Core;GTK;FileTools;FileManager;
+Comment=Browse the filesystem with the file manager
+Exec=thunar %U
+GenericName=File Manager
+Icon=org.xfce.thunar
+Keywords=file manager;explorer;finder;browser;folders;directory;directories;partitions;drives;network;devices;rename;move;copy;delete;permissions;home;trash;
+MimeType=inode/directory;
+Name=Thunar
+StartupNotify=true
+Terminal=false
+Type=Application

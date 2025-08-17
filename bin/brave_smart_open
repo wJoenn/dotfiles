@@ -1,0 +1,21 @@
+#!/bin/bash
+
+BRAVE_CMD="brave --password-store=basic --enable-features=UseOzonePlatform --ozone-platform=wayland"
+BRAVE_FOUND_ON_CURRENT_WORKSPACE=false
+URL=$1
+
+CURRENT_WORKSPACE=$(hyprctl activeworkspace -j | jq '.id')
+BRAVE_WINDOWS=$(hyprctl clients -j | jq '.[] | select(.class == "brave-browser") | .workspace.id')
+
+for workspace_id in $BRAVE_WINDOWS; do
+    if [[ "$workspace_id" == "$CURRENT_WORKSPACE" ]]; then
+        BRAVE_FOUND_ON_CURRENT_WORKSPACE=true
+        break
+    fi
+done
+
+if [[ "$BRAVE_FOUND_ON_CURRENT_WORKSPACE" == "true" ]]; then
+  hyprctl dispatch exec "$BRAVE_CMD $URL"
+else
+  hyprctl dispatch exec "$BRAVE_CMD --new-window $URL"
+fi

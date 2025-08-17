@@ -1,13 +1,13 @@
 [Desktop Entry]
+Version=1.0
 Categories=Favourite;Network;WebBrowser;
-Exec=/home/joenn/code/dotfiles/bin/brave_smart_open
 GenericName=Web Browser
-Icon=brave-desktop
+Exec=brave --incognito
+Icon=brave-desktop-incognito
 MimeType=application/pdf;application/rdf+xml;application/rss+xml;application/xhtml+xml;application/xhtml_xml;application/xml;image/gif;image/jpeg;image/png;image/webp;text/html;text/xml;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ipfs;x-scheme-handler/ipns;
-Name=Brave
+Name=Brave (private window)
 StartupNotify=true
 StartupWMClass=brave-browser
 Terminal=false
 TryExec=brave
 Type=Application
-Version=1.0

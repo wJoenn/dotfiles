@@ -1,10 +1,10 @@
 [Desktop Entry]
 Categories=Favourite;Network;WebBrowser;
-Exec=/home/joenn/code/dotfiles/bin/brave_smart_open
+Exec=/home/joenn/code/dotfiles/bin/brave_smart_open https://www.archlinux.org/
 GenericName=Web Browser
-Icon=brave-desktop
+Icon=arch
 MimeType=application/pdf;application/rdf+xml;application/rss+xml;application/xhtml+xml;application/xhtml_xml;application/xml;image/gif;image/jpeg;image/png;image/webp;text/html;text/xml;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ipfs;x-scheme-handler/ipns;
-Name=Brave
+Name=Arch
 StartupNotify=true
 StartupWMClass=brave-browser
 Terminal=false

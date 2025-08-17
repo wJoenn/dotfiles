@@ -1,0 +1,102 @@
+/**
+ *
+ * Author : Aditya Shakya (adi1090x)
+ * Github : @adi1090x
+ *
+ * Rofi Theme File
+ * Rofi Version: 1.7.3
+ **/
+
+/*****----- Configuration -----*****/
+configuration {
+  disable-history: true;
+  drun-categories: [Favourite];
+	modi: [drun];
+  show-icons: true;
+	drun-display-format: "{name}";
+}
+
+* {
+  active: #23d18b;
+  background: #1e1e1e;
+  background-alt: #222222;
+  foreground: #cbcbcb;
+  urgent: #f14c4c;
+}
+
+/*****----- Main Window -----*****/
+window {
+  background-image: url("~/.config/rofi/background.png", both);
+  border: none;
+  fullscreen: true;
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+  padding: 100px 225px;
+  spacing: 100px;
+}
+
+/*****----- Inputbar -----*****/
+inputbar {
+  background-color: white / 5%;
+  border-radius: 8px;
+  children: [ "prompt", "entry" ];
+  margin: 0% 25%;
+  padding: 16px;
+  spacing: 10px;
+}
+
+entry {
+  cursor: text;
+  placeholder: "Search";
+}
+
+/*****----- Listview -----*****/
+listview {
+  border: none;
+  columns: 8;
+  fixed-columns: true;
+  flow: horizontal;
+  lines: 4;
+  scrollbar: false;
+}
+
+/*****----- Elements -----*****/
+element {
+  border-radius: 8px;
+  cursor: pointer;
+  orientation: vertical;
+  padding: 32px 16px;
+  spacing: 16px;
+}
+
+element normal.normal,
+element alternate.normal {
+  background-color: transparent;
+}
+
+element selected.normal {
+  background-color: white / 5%;
+}
+
+element-icon {
+  size: 64px;
+}
+
+element-text {
+  highlight: none;
+  horizontal-align: 0.5;
+  vertical-align: 0.5;
+}
+
+/*****----- Message -----*****/
+error-message {
+  padding: 100px;
+}
+
+textbox {
+  highlight: none;
+  horizontal-align: 0.0;
+  vertical-align: 0.5;
+}
