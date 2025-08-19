@@ -32,6 +32,7 @@
 - sddm:
 - thunar:
 ### Infotainment
+- discord:
 - grim: A command-line utility for taking screenshots on Wayland compositors.
 - slack-desktop: A cloud-based team communication platform.
 - slurp: A command-line tool for selecting a region of the screen on Wayland.
