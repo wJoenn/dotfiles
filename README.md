@@ -39,4 +39,5 @@
 - spotify-launcher: A simple launcher script for the Spotify desktop client on Linux.
 - wl-clipboard: A command-line utility that provides copy and paste functionality for the Wayland protocol.
 ### Development
+- firefox:
 ### Gaming
