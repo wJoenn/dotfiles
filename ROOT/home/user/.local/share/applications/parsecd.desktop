@@ -1,0 +1,9 @@
+[Desktop Entry]
+Categories=Favourite;Network;Game;Utility;
+Comment=Simple, low-latency game streaming.
+Exec=/usr/bin/parsecd %u
+GenericName=Parsec
+Icon=/usr/share/icons/hicolor/256x256/apps/parsecd.png
+Name=Parsec
+Terminal=false
+Type=Application

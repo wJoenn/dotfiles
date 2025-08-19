@@ -34,6 +34,7 @@
 ### Infotainment
 - discord:
 - grim: A command-line utility for taking screenshots on Wayland compositors.
+- parsec-bin:
 - slack-desktop: A cloud-based team communication platform.
 - slurp: A command-line tool for selecting a region of the screen on Wayland.
 - spotify-launcher: A simple launcher script for the Spotify desktop client on Linux.
