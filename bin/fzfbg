@@ -18,11 +18,14 @@ if [ -n "$selected_filename" ]; then
   # Reconstruct the full path
   file="$ASSETS/$selected_filename.png"
   target="$HOME/.config/wallpaper.png"
+  blurry_target="$HOME/.config/blurry_wallpaper.png"
 
   cp "$file" "$target"
   hyprctl hyprpaper reload ",$target" > /dev/null
 
-  magick $file \( -size $(identify -format "%wx%h" $file) xc:"#1e1e1ecc" \) -compose over -composite -blur 0x4 "$HOME/.config/blurry_wallpaper.png"
+  magick $file \( -size $(identify -format "%wx%h" $file) xc:"#1e1e1ecc" \) -compose over -composite -blur 0x4 $blurry_target
+
+  sudo cp $blurry_target "/usr/share/sddm/themes/joenn/assets/background.png"
 
   echo "Wallpaper changed to $selected_filename."
 else
