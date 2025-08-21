@@ -1,0 +1,17 @@
+#!/bin/zsh
+
+TODAY=$(date +%Y-%m-%d)
+YAY_UPDATE_TIMESTAMP="$HOME/.yay_update_timestamp"
+
+if [ -f "$YAY_UPDATE_TIMESTAMP" ] && [ $(cat "$YAY_UPDATE_TIMESTAMP") = $TODAY ]; then
+  return
+fi
+
+echo "Do you want to run \`yay -Syu\` ? (y/n)"
+read -r -k 1
+echo
+
+echo $TODAY > $YAY_UPDATE_TIMESTAMP
+if [[ $REPLY = "y" ]]; then
+  yay -Syu
+fi
