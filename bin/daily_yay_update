@@ -1,0 +1,51 @@
+#!/usr/bin/env ruby
+
+require "date"
+require "io/console"
+
+today = Date.today.to_s
+yay_update_timestamp_path = File.join(Dir.home, ".yay_update_timestamp")
+
+exit if File.exist?(yay_update_timestamp_path) && File.read(yay_update_timestamp_path).strip == today
+
+ASCII_ART="
+█████ █████                                 █████████
+░░███ ░░███                                 ███░░░░░███
+ ░░███ ███    ██████   █████ ████          ░███    ░░░  █████ ████ █████ ████
+  ░░█████    ░░░░░███ ░░███ ░███     ██████░░█████████ ░░███ ░███ ░░███ ░███
+   ░░███      ███████  ░███ ░███    ░░░░░░  ░░░░░░░░███ ░███ ░███  ░███ ░███
+    ░███     ███░░███  ░███ ░███            ███    ░███ ░███ ░███  ░███ ░███
+    █████   ░░████████ ░░███████           ░░█████████  ░░███████  ░░████████
+   ░░░░░     ░░░░░░░░   ░░░░░███            ░░░░░░░░░    ░░░░░███   ░░░░░░░░
+                        ███ ░███                         ███ ░███
+                       ░░██████                         ░░██████
+                        ░░░░░░                           ░░░░░░
+"
+
+gradient_start_color = [128, 238, 192] # #80eec0
+gradient_end_color = [0, 122, 204] # #007acc
+
+lines = ASCII_ART.lines.filter_map(&:strip)
+max_line_length = lines.map(&:length).max
+
+lines.each_with_index do |line, y|
+  output_line = line.chars.map.with_index { |char, x|
+    ratio = (x.fdiv(max_line_length) + y.fdiv(lines.length)) / 2
+
+    red, green, blue = [0, 1, 2].map do |i|
+      (gradient_start_color[i] + (gradient_end_color[i] - gradient_start_color[i]) * ratio).to_i
+    end
+
+    "\e[38;2;#{red};#{green};#{blue}m#{char}\e[0m"
+  }.join
+
+  puts output_line
+end
+
+puts
+puts "Do you want to run `yay -Syu`? (y/n)"
+input = STDIN.noecho(&:getch).strip.downcase
+
+File.write(yay_update_timestamp_path, today)
+
+system("yay -Syu") if ["", "y"].include?(input)

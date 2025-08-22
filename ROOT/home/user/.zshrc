@@ -21,4 +21,4 @@ source <(fzf --zsh)
 
 [[ $TERM = "xterm-kitty" ]] && chafa --size 35x35 ~/.config/fastfetch/logo.webp | fastfetch --show-errors --logo-width 35 --raw -
 
-prompt_yay_update
+daily_yay_update
