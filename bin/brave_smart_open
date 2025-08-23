@@ -1,21 +1,18 @@
-#!/bin/bash
+#!/usr/bin/env ruby
 
-BRAVE_CMD="brave --password-store=basic --enable-features=UseOzonePlatform --ozone-platform=wayland"
-BRAVE_FOUND_ON_CURRENT_WORKSPACE=false
-URL=$1
+require "json"
 
-CURRENT_WORKSPACE=$(hyprctl activeworkspace -j | jq '.id')
-BRAVE_WINDOWS=$(hyprctl clients -j | jq '.[] | select(.class == "brave-browser") | .workspace.id')
+url = ARGV.first
+brave_cmd = "brave --password-store=basic --enable-features=UseOzonePlatform --ozone-platform=wayland"
 
-for workspace_id in $BRAVE_WINDOWS; do
-    if [[ "$workspace_id" == "$CURRENT_WORKSPACE" ]]; then
-        BRAVE_FOUND_ON_CURRENT_WORKSPACE=true
-        break
-    fi
-done
+current_workspace = JSON.parse(`hyprctl activeworkspace -j`)
+windows = JSON.parse(`hyprctl clients -j`)
+brave_windows = windows.select { |window| window["class"] == "brave-browser" }
 
-if [[ "$BRAVE_FOUND_ON_CURRENT_WORKSPACE" == "true" ]]; then
-  hyprctl dispatch exec "$BRAVE_CMD $URL"
-else
-  hyprctl dispatch exec "$BRAVE_CMD --new-window $URL"
-fi
+brave_found_on_current_workspace = brave_windows.one? do |brave|
+  brave.dig("workspace", "id") == current_workspace["id"]
+end
+
+brave_cmd += " --new-window" unless brave_found_on_current_workspace
+
+`hyprctl dispatch exec "#{brave_cmd} #{url}"`
