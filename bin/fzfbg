@@ -1,33 +1,39 @@
-#!/bin/bash
+#!/usr/bin/env ruby
 
-ASSETS="$DOTFILES/assets/1080"
+require "fileutils"
+require 'open3'
 
-# Get the list of filenames without extensions
-filenames=()
-for file_path in "$ASSETS"/*; do
-  filename="$(basename "$file_path")"
-  filenames+=("${filename%.*}")
-done
+ASSETS = "#{ENV["DOTFILES"]}/assets"
 
-# Use 'fzf' to create a searchable and navigable menu
-# The selected file is stored in the 'selected_file' variable
-selected_filename=$(printf "%s\n" "${filenames[@]}" | fzf)
+filenames = Dir.glob("#{ASSETS}/*").map { |filename| filename.split('/').last.split('.').first }
+stdin_data = filenames.join("\n")
 
-# Check if a file was selected (fzf returns a non-zero exit code if you press Ctrl+C or Esc)
-if [ -n "$selected_filename" ]; then
-  # Reconstruct the full path
-  file="$ASSETS/$selected_filename.png"
-  target="$HOME/.config/wallpaper.png"
-  blurry_target="$HOME/.config/blurry_wallpaper.png"
+stdout, _, status = Open3.capture3('fzf', stdin_data:)
+exit unless status.success?
 
-  cp "$file" "$target"
-  hyprctl hyprpaper reload ",$target" > /dev/null
+selected_filename = stdout.strip
+file = "#{ASSETS}/#{selected_filename}.png"
 
-  magick $file \( -size $(identify -format "%wx%h" $file) xc:"#1e1e1ecc" \) -compose over -composite -blur 0x4 $blurry_target
+# Set hyprpaper's wallpaper
+target = "#{Dir.home}/.config/wallpaper.png"
+FileUtils.copy(file, target)
+`hyprctl hyprpaper reload ",#{target}" > /dev/null`
 
-  sudo cp $blurry_target "/usr/share/sddm/themes/joenn/assets/background.png"
+# Create blurry version for overlays like hyprlock/rofi
+blurry_target = "#{Dir.home}/.config/blurry_wallpaper.png"
 
-  echo "Wallpaper changed to $selected_filename."
-else
-  echo "No selection made."
-fi
+layer_color = "#1e1e1ecc"
+size = `identify -format "%wx%h" #{file}`.strip
+options = [
+  ["compose", "over"],
+  ["composite"],
+  ["blur", "0x4"]
+].map { |option| "-#{option.join(" ")}" }.join(" ")
+
+`magick #{file} \\( -size "#{size}" xc:"#{layer_color}" \\) #{options} #{blurry_target}`
+
+# Use blurry version for sddm
+sddm_target = "/usr/share/sddm/themes/joenn/assets/background.png"
+`sudo cp #{blurry_target} #{sddm_target}`
+
+puts "Wallpaper changed to #{selected_filename}."
