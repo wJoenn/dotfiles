@@ -12,7 +12,7 @@ command = "fzf --preview 'chafa --size 100 #{ASSETS}/{}.png'"
 stdout, stderr, status = Open3.capture3(command, stdin_data:)
 
 unless status.success?
-  p stderr
+  puts stderr if stderr
   exit
 end
 
@@ -27,12 +27,12 @@ FileUtils.copy(file, target)
 # Create blurry version for overlays like hyprlock/rofi
 blurry_target = "#{Dir.home}/.config/blurry_wallpaper.png"
 
-layer_color = "#1e1e1ecc"
-size = `identify -format "%wx%h" #{file}`.strip
+layer_color = "#1e1e1ecc" # Same color + opacity as kitty terminal background + hyprland windowrule opacity
+size = `identify -format "%wx%h" #{file}`.strip # keeps the size of the file
 options = [
   ["compose", "over"],
   ["composite"],
-  ["blur", "0x4"]
+  ["blur", "0x4"] # same blur intensity as hyprland windowrule
 ].map { |option| "-#{option.join(" ")}" }.join(" ")
 
 `magick #{file} \\( -size "#{size}" xc:"#{layer_color}" \\) #{options} #{blurry_target}`

@@ -19,6 +19,10 @@ export PATH="$DOTFILES/bin:$PATH"
 ## fzf
 source <(fzf --zsh)
 
-[[ $TERM = "xterm-kitty" ]] && chafa --size 35x35 ~/.config/fastfetch/logo.webp | fastfetch --show-errors --logo-width 35 --raw -
+## fastfetch
+if [ $TERM = "xterm-kitty" ]; then
+  chafa --size 35x35 ~/.config/fastfetch/logo.webp | fastfetch --show-errors --logo-width 35 --raw -
+fi
 
+## yay
 daily_yay_update

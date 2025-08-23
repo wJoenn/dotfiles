@@ -30,12 +30,17 @@ max_line_length = lines.map(&:length).max
 
 lines.each_with_index do |line, y|
   output_line = line.chars.map.with_index { |char, x|
-    ratio = (x.fdiv(max_line_length) + y.fdiv(lines.length)) / 2
+    x_ratio = x.fdiv(max_line_length - 1) # 0.0..1.0 relative position of the char's x axis from the total width
+    y_ratio = y.fdiv(lines.length - 1) # 0.0..1.0 relative position of the char's y axis from the total height
+    ratio = (x_ratio + y_ratio) / 2 # /2 makes the gradient go to the bottom right
 
     red, green, blue = [0, 1, 2].map do |i|
-      (gradient_start_color[i] + (gradient_end_color[i] - gradient_start_color[i]) * ratio).to_i
+      # creates a transition color between start_color and end_color at a given 2D position
+      gradient_start_color[i] + ((gradient_end_color[i] - gradient_start_color[i]) * ratio).to_i
     end
 
+    # \e[38;2;{red};{green};{blue}m is the escape sequence for 24-bit true color.
+    # \e[0m resets the color, so only the current character is affected.
     "\e[38;2;#{red};#{green};#{blue}m#{char}\e[0m"
   }.join
 
