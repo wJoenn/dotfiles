@@ -8,8 +8,13 @@ ASSETS = "#{ENV["DOTFILES"]}/assets"
 filenames = Dir.glob("#{ASSETS}/*").map { |filename| filename.split('/').last.split('.').first }
 stdin_data = filenames.join("\n")
 
-stdout, _, status = Open3.capture3('fzf', stdin_data:)
-exit unless status.success?
+command = "fzf --preview 'chafa --size 100 #{ASSETS}/{}.png'"
+stdout, stderr, status = Open3.capture3(command, stdin_data:)
+
+unless status.success?
+  p stderr
+  exit
+end
 
 selected_filename = stdout.strip
 file = "#{ASSETS}/#{selected_filename}.png"
