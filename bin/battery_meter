@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+
+require "json"
+
+BATTERY_ICONS = { charging: '⚡︎', full: '', '75': '', '50': '', '25': '', empty: '' }
+BAT_PATH = "/sys/class/power_supply/BAT0"
+
+capacity = nil
+status = nil
+
+capacity_path = "#{BAT_PATH}/capacity"
+capacity = File.read(capacity_path).strip.to_i if File.exist?(capacity_path)
+
+status_path = "#{BAT_PATH}/status"
+status = File.read(status_path).strip if File.exist?(status_path)
+
+if status.nil? || capacity.nil?
+  exit
+elsif status == "Charging" || capacity == 100
+  puts "#{BATTERY_ICONS[:charging]} #{capacity}%"
+elsif capacity >= 95
+  puts "#{BATTERY_ICONS[:full]} #{capacity}%"
+elsif capacity >= 75
+  puts "#{BATTERY_ICONS[:'75']} #{capacity}%"
+elsif capacity >= 50
+  puts "#{BATTERY_ICONS[:'50']} #{capacity}%"
+elsif capacity >= 25
+  puts "#{BATTERY_ICONS[:'25']} #{capacity}%"
+else
+  puts "#{BATTERY_ICONS[:empty]} #{capacity}%"
+end
