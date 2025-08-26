@@ -24,13 +24,16 @@
 - chafa:
 - dunst: A lightweight and customizable notification daemon.
 - fastfetch:
+- fontconfig:
 - hyprland: A dynamic tiling Wayland compositor based on wlroots, designed for performance and aesthetics.
 - hyprlock:
 - kitty: A fast, feature-rich, cross-platform GPU-accelerated terminal emulator.
-- noto-fonts:
 - rofi:
 - sddm:
 - thunar:
+- ttf-nerd-fonts-symbols-mono:
+- ttf-roboto:
+- ttf-roboto-mono:
 ### Infotainment
 - discord:
 - grim: A command-line utility for taking screenshots on Wayland compositors.
