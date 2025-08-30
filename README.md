@@ -1,5 +1,7 @@
 ## Packages
 ### System
+- bluez:
+- bluetui:
 - fzf: A general-purpose command-line fuzzy finder.
 - git: A distributed version control system for tracking changes in source code.
 - github-cli: A command-line interface for GitHub.
@@ -23,6 +25,7 @@
 - brightnessctl: A command-line tool for controlling display brightness on Linux.
 - chafa:
 - dunst: A lightweight and customizable notification daemon.
+- eww:
 - fastfetch:
 - fontconfig:
 - hyprland: A dynamic tiling Wayland compositor based on wlroots, designed for performance and aesthetics.

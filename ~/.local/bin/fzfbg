@@ -37,6 +37,9 @@ options = [
 
 `magick #{file} \\( -size "#{size}" xc:"#{layer_color}" \\) #{options} #{blurry_target}`
 
+# reload eww background
+`eww reload 2> /dev/null`
+
 # Use blurry version for sddm
 sddm_target = "/usr/share/sddm/themes/joenn/assets/background.png"
 `sudo cp #{blurry_target} #{sddm_target}`

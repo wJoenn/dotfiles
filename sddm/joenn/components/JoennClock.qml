@@ -28,7 +28,7 @@ Column {
     anchors.right: parent.right
     color: "#cbcbcb"
     font.family: "RobotoMono"
-    font.pointSize: 25
+    font.pointSize: 21
     text : Qt.formatDate(container.dateTime, "dddd, d MMMM yyyy")
   }
 }
