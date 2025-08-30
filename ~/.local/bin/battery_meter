@@ -1,7 +1,5 @@
 #!/usr/bin/env ruby
 
-require "json"
-
 BATTERY_ICONS = { charging: '⚡︎', full: '', '75': '', '50': '', '25': '', empty: '' }
 BAT_PATH = "/sys/class/power_supply/BAT0"
 

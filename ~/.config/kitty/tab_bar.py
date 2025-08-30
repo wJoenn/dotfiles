@@ -1,4 +1,4 @@
-# import os
+import os
 import subprocess
 from kitty.fast_data_types import Screen # type: ignore
 from kitty.tab_bar import DrawData, ExtraData, TabBarData, as_rgb, draw_title
@@ -8,7 +8,7 @@ ICON_FG: int = as_rgb(0x80eec0)
 
 def _draw_battery_icon(screen: Screen, index: int) -> int:
   if index == 1:
-    process = subprocess.run('/home/joenn/code/dotfiles/bin/battery_meter', capture_output=True, text=True)
+    process = subprocess.run(f"{os.getenv('HOME')}/.local/bin/battery_meter", capture_output=True, text=True)
     battery_meter = process.stdout.strip()
 
     fg = screen.cursor.fg
