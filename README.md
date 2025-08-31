@@ -36,6 +36,8 @@
 - hyprpaper: A wallpaper utility for Hyprland.
 - hyprpicker: A color picker for Hyprland.
 - imagemagick: A software suite for image manipulation.
+- rbenv:
+- ruby-build:
 - rofi: A window switcher, application launcher, and dmenu replacement.
 - slurp: A utility for selecting a region on the screen in Wayland.
 - ttf-nerd-fonts-symbols-mono: A font with a large collection of symbols and icons.

@@ -26,3 +26,8 @@ fi
 
 ## yay
 daily_yay_update
+
+# LANGUAGES
+## Ruby
+### Load rbenv if installed
+type -a rbenv > /dev/null && eval "$(rbenv init -)"
