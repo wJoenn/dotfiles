@@ -17,7 +17,7 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # TOOLING
 ## fzf
-source <(fzf --zsh)
+type -a fzf > /dev/null && source <(fzf --zsh)
 
 ## fastfetch
 if [ $TERM = "xterm-kitty" ]; then
