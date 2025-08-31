@@ -51,6 +51,7 @@
 
 ### Development
 - firefox: A popular web browser.
+- nvm:
 
 ### Gaming
 - parsec-bin: A remote desktop application for gaming.
