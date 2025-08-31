@@ -1,0 +1,11 @@
+[Desktop Entry]
+Categories=Favourite;Network;FileTransfer;Game;
+Comment=Application for managing and playing games on Steam
+Exec=/usr/bin/steam steam://open/games
+Icon=steam
+MimeType=x-scheme-handler/steam;x-scheme-handler/steamlink;
+Name=Steam
+PrefersNonDefaultGPU=true
+Terminal=false
+Type=Application
+X-KDE-RunOnDiscreteGpu=true
