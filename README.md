@@ -50,8 +50,11 @@
 - spotify-launcher: A command-line utility to launch Spotify.
 
 ### Development
+- aur/redis:
+- aws-cli-v2:
 - firefox: A popular web browser.
 - nvm:
+- postgresql:
 
 ### Gaming
 - parsec-bin: A remote desktop application for gaming.
