@@ -62,3 +62,10 @@ type -a nvm > /dev/null && load-nvmrc
 ## Ruby
 ### Load rbenv if installed
 type -a rbenv > /dev/null && eval "$(rbenv init -)"
+
+### Rails and Ruby uses the local `bin` folder to store binstubs.
+export PATH="./bin:$PATH"
+
+# Leexi
+## AWS
+export AWS_PROFILE=leexi-admin-dev
