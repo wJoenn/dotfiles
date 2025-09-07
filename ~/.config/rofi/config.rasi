@@ -27,7 +27,7 @@ configuration {
 
 /*****----- Main Window -----*****/
 window {
-  background-image: url("~/.config/blurry_wallpaper.png", width);
+  background-image: url("~/.config/overlay_wallpaper", width);
   border: none;
   fullscreen: true;
 }

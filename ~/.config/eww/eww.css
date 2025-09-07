@@ -23,7 +23,7 @@ window {
 }
 
 .container {
-  background-image: url('/home/joenn/.config/blurry_wallpaper.png');
+  background-image: url('/home/joenn/.config/overlay_wallpaper');
   background-position: calc(100% + 12px) center;
   border-radius: 8px;
   padding: 16px;

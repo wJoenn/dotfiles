@@ -1,0 +1,94 @@
+#!/usr/bin/env ruby
+
+require 'fileutils'
+require 'pathname'
+
+class WallpaperChanger
+  CONFIG_DIR = Pathname.new(Dir.home).join('.config')
+  OVERLAY_TARGET = CONFIG_DIR.join('overlay_wallpaper').freeze
+  SDDM_TARGET = '/usr/share/sddm/themes/joenn/assets/wallpaper'.freeze
+  VIDEO_WALLPAPER_TARGET = CONFIG_DIR.join('hypr/video-wallpaper').freeze
+  WALLPAPER_TARGET = CONFIG_DIR.join('hypr/wallpaper').freeze
+  TEMP_WALLPAPER_PATH = CONFIG_DIR.join('hypr/wallpaper.png').freeze
+
+  def self.call(path:)
+    new(path).change_wallpaper
+  end
+
+  def initialize(path)
+    @full_path = Pathname.new(path).expand_path
+    raise "File not found: #{@full_path}" unless @full_path.exist?
+  end
+
+  def change_wallpaper
+    @source_path = video? ? extract_frame_from_video : @full_path
+
+    # Apply wallpapers to different services
+    handle_hyprpaper
+    handle_mpvpaper
+    generate_overlay_wallpaper
+    handle_eww
+    handle_sddm
+
+    puts "Wallpaper changed to #{@full_path}."
+  ensure
+    TEMP_WALLPAPER_PATH.delete if TEMP_WALLPAPER_PATH.exist?
+  end
+
+  private
+
+  def handle_eww
+    `eww reload 2> /dev/null`
+  end
+
+  def handle_hyprpaper
+    FileUtils.copy(@source_path, WALLPAPER_TARGET)
+    `hyprctl hyprpaper reload ",#{WALLPAPER_TARGET}" 2> /dev/null`
+  end
+
+  def handle_mpvpaper
+    VIDEO_WALLPAPER_TARGET.delete if VIDEO_WALLPAPER_TARGET.exist?
+    `killall mpvpaper 2> /dev/null`
+    return unless video?
+
+    FileUtils.copy(@full_path, VIDEO_WALLPAPER_TARGET)
+    `hyprctl dispatch exec 'mpvpaper eDP-1 "#{VIDEO_WALLPAPER_TARGET}" --mpv-options "--loop --panscan=1.0"' 2> /dev/null`
+  end
+
+  def generate_overlay_wallpaper
+    # Same color + opacity as kitty terminal background + hyprland windowrule opacity
+    layer_color = "#1e1e1ecc"
+
+    # keeps the size of the file
+    size = `identify -format "%wx%h" #{@source_path}`.strip
+
+    # same blur intensity as hyprland windowrule
+    options = '-compose over -composite -blur 0x4'
+
+    `magick #{@source_path} \\( -size "#{size}" xc:"#{layer_color}" \\) #{options} #{OVERLAY_TARGET}`
+  end
+
+  def handle_sddm
+    `sudo cp #{OVERLAY_TARGET} #{SDDM_TARGET}`
+  end
+
+  def video?
+    `file --mime -b #{@full_path}`.include?('video')
+  end
+
+  def extract_frame_from_video
+    width = 'ih*16/9'
+    x = "(iw-#{width})/2"
+    `ffmpeg -i #{@full_path} -ss 0 -vf "crop=#{width}:ih:#{x}:0,scale=1920:1080" -vframes 1 #{TEMP_WALLPAPER_PATH} -loglevel error`
+
+    TEMP_WALLPAPER_PATH
+  end
+end
+
+# Main script execution
+if ARGV.empty?
+  $stderr.puts "Usage: #{$0} <path_to_wallpaper_file>"
+  exit 1
+end
+
+WallpaperChanger.call(path: ARGV.first)
