@@ -68,4 +68,5 @@ export PATH="./bin:$PATH"
 
 # Leexi
 ## AWS
+export AWS_CA_BUNDLE="/etc/ssl/certs/ca-certificates.crt"
 export AWS_PROFILE=leexi-admin-dev
