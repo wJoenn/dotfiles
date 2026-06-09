@@ -70,7 +70,7 @@
   "window.restoreWindows": "one",
   "window.newWindowDimensions": "maximized",
 
-  "workbench.colorTheme": "Default Dark+",
+  "workbench.colorTheme": "Dark+",
   "workbench.editor.enablePreview": false,
   "workbench.iconTheme": "material-icon-theme",
   "workbench.settings.editor": "ui",
