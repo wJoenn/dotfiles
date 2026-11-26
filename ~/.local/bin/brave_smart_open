@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require "json"
+require "shellwords"
 
 url = ARGV.first
 brave_cmd = "brave --password-store=basic --enable-features=UseOzonePlatform --ozone-platform=wayland"
@@ -14,5 +15,7 @@ brave_found_on_current_workspace = brave_windows.one? do |brave|
 end
 
 brave_cmd += " --new-window" unless brave_found_on_current_workspace
+brave_cmd += " #{Shellwords.escape(url)}" if url && !url.empty?
 
-`hyprctl dispatch exec "#{brave_cmd} #{url}"`
+command = brave_cmd.gsub(/[\\"]/) { "\\#{_1}" }
+system("hyprctl", "dispatch", %(hl.dsp.exec_cmd("#{command}")))
