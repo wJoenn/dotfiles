@@ -66,6 +66,10 @@ type -a rbenv > /dev/null && eval "$(rbenv init -)"
 ### Rails and Ruby uses the local `bin` folder to store binstubs.
 export PATH="./bin:$PATH"
 
+# DATABASES
+## Postgres
+export PATH="$HOME/.pgenv/bin:$HOME/.pgenv/pgsql/bin:$PATH"
+
 # Leexi
 ## AWS
 export AWS_CA_BUNDLE="/etc/ssl/certs/ca-certificates.crt"
